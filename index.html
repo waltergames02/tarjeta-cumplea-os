@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Tarjeta de Cumpleaños</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      color: #fff;
+      background: radial-gradient(circle at top left, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
+      background-size: 400% 400%;
+      animation: fondoAnimado 15s ease infinite;
+    }
+
+    @keyframes fondoAnimado {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .pantalla-inicio {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      z-index: 10;
+      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('imagenes/fondo.jpg'); /* Imagen local de fondo */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .pantalla-inicio h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px #00000040;
+    }
+
+    .boton-inicio {
+      background: #ff1493;
+      color: white;
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      transition: transform 0.3s ease;
+      animation: latido 1.2s infinite;
+    }
+
+    .boton-inicio:hover {
+      transform: scale(1.08);
+      background: #ff69b4;
+    }
+
+    @keyframes latido {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    .contenedor {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      padding: 20px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .mensaje {
+      font-size: 1.4rem;
+      max-width: 800px;
+      margin-bottom: 30px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeIn 1s ease 0.5s forwards;
+    }
+
+    .galeria {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+      animation: fadeIn 1s ease 1.5s forwards;
+    }
+
+    .galeria img {
+      width: 200px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.4);
+      transition: transform 0.3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    .confeti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+      animation: caer 5s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes caer {
+      0% { transform: translateY(-100vh) rotate(0); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    .confeti:nth-child(odd) { background: #ff5e78; }
+    .confeti:nth-child(even) { background: #ffffff; }
+
+  </style>
+</head>
+<body>
+
+  <!-- Pantalla de bienvenida -->
+  <div class="pantalla-inicio" id="inicio">
+    <h1>🎈 ¡Tienes un regalo especial! 🎁</h1>
+    <button class="boton-inicio" onclick="mostrarSorpresa()">🎁 ¡Abrir tarjeta!</button>
+  </div>
+
+  <!-- Contenido de la sorpresa -->
+  <div class="contenedor" id="contenido">
+    <h2>🎉 ¡Feliz Cumpleaños! 🎂</h2>
+    <div class="mensaje">
+      Hoy celebramos tu vida con alegría y cariño.  
+      Gracias por ser una persona increíble, llena de luz.  
+      Que este nuevo año esté lleno de éxitos, salud y mucho amor.  
+      ¡Disfruta cada momento como si fuera único! 💖  
+      <br><br>
+      — Con mucho aprecio 💐
+    </div>
+
+    <!-- Galería de 4 imágenes locales -->
+    <div class="galeria">
+      <img src="imagenes/1.jpg" alt="foto 1">
+      <img src="imagenes/2.jpg" alt="foto 2">
+      <img src="imagenes/3.jpg" alt="foto 3">
+      <img src="imagenes/4.jpg" alt="foto 4">
+    </div>
+  </div>
+
+  <!-- Confeti y música -->
+  <script>
+    const cantidad = 100;
+    for (let i = 0; i < cantidad; i++) {
+      const confeti = document.createElement("div");
+      confeti.classList.add("confeti");
+      confeti.style.left = Math.random() * 100 + "vw";
+      confeti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      confeti.style.opacity = Math.random();
+      document.body.appendChild(confeti);
+    }
+
+    function mostrarSorpresa() {
+      document.getElementById('inicio').style.display = 'none';
+      document.getElementById('contenido').style.display = 'flex';
+      document.getElementById('musica').play();
+    }
+  </script>
+
+  <audio id="musica" loop>
+    <source src="musica/cumpleaños.mp3" type="audio/mpeg">
+  </audio>
+
+</body>
+</html>
