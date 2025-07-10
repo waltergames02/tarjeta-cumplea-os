@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Tarjeta de Cumpleaños</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  overflow-y: auto;
+  color: #fff;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('imagenes/fondo.gif') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+
+    @keyframes fondoAnimado {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 10% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+    .pantalla-inicio {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      z-index: 10;
+      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('imagenes/fondo.jpg'); /* Imagen local de fondo */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      
+    }
+
+    .pantalla-inicio h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px #00000040;
+      
+    }
+
+    .boton-inicio {
+      background: #ff1493;
+      color: white;
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      transition: transform 0.3s ease;
+      animation: latido 1.2s infinite;
+      
+    }
+
+    .boton-inicio:hover {
+      transform: scale(1.08);
+      background: #ff69b4;
+    }
+
+    @keyframes latido {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    .contenedor {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh; /* en vez de height fija */
+  padding: 20px;
+  animation: fadeIn 1s ease forwards;
+}
+
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .mensaje {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin-bottom: 30px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.5s forwards;
+    text-align: justify; /* ✅ Esta línea alinea el texto */
+    }
+
+
+    .galeria {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+      animation: fadeIn 1s ease 1.5s forwards;
+    }
+
+    .galeria img {
+      width: 200px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.4);
+      transition: transform 0.3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    .confeti {
+    position: fixed; /* en lugar de absolute */
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    animation: caer 5s linear infinite;
+    pointer-events: none;
+    z-index: 1000;
+    } 
+
+
+    @keyframes caer {
+  0%   { transform: translateY(-10vh) rotate(0); } /* menos altura inicial, comienza apenas fuera de vista */
+  100% { transform: translateY(110vh) rotate(360deg); } /* cae hasta el fondo */
+}
+
+    .confeti:nth-child(odd) { background: #ff5e78; }
+    .confeti:nth-child(even) { background: #ffffff; }
+
+  </style>
+</head>
+<body>
+
+  <!-- Pantalla de bienvenida -->
+  <div class="pantalla-inicio" id="inicio">
+    <h1>🎈 ¡Tienes un regalo especial! 🎁</h1>
+    <button class="boton-inicio" onclick="mostrarSorpresa()">🎁 ¡Abrir tarjeta!</button>
+  </div>
+
+  <!-- Contenido de la sorpresa -->
+  <div class="contenedor" id="contenido">
+    <h2>🎉 ¡Feliz Cumpleaños! 🎂</h2>
+    <div class="mensaje">
+      Hoy celebramos tu vida con alegría y cariño.  
+      Gracias por ser una persona increíble, llena de luz.  
+      Que este nuevo año esté lleno de éxitos, salud y mucho amor.  
+      ¡Disfruta cada momento como si fuera único!, que la pases muy bonito en este dia tan especial💖
+      , no tomes mucho nomas , ya te di tu regalo a pesar de que no te guste tanto, pero espero que lo disfrutes.
+      tambien a apesar de que me abandones o me olvides o capaz ya te aburro, quiero que sepas que siempre estaré aquí para ti.
+      y que tambien ya no me escribas como antes , pero no importa, siempre estaré aquí para ti, y si no quieres hablarme, no hay problema, yo siempre estaré aquí para ti.
+      pasala mejor de las fiestas, disfruta con tus amigos y familiares, y recuerda que siempre puedes contar conmigo.
+      que lo pases muy bien en este día tan especial, y que todos tus sueños se hagan realidad y nunca te rindas, porque siempre habrá alguien que te apoye y te quiera.
+      capaz a veces no te lo digo, pero eres una persona muy especial para mí, y siempre estaré aquí para ti, aunque a veces no lo parezca.
+      y tambien seguro a veces me paso con mis bromas, o a veces soy un poco pesado, pero siempre lo hago con cariño y con el deseo de hacerte reír.
+      espero que este mensaje te haga sonreír y te recuerde lo importante que eres para mí.
+      recuerda que siempre puedes contar conmigo, y que siempre estaré aquí para ti, aunque a veces no lo parezca.
+      disfruta de este día tan especial, y recuerda que siempre hay algo por lo que estar agradecido.
+      que la vida es corta, y que siempre hay algo por lo que luchar y por lo que seguir adelante.
+      se te quiere mucho, y que siempre estaré aquí para ti, aunque a veces no lo parezca o te aburra capaz por eso me olvidas.
+      pero bueno solo queria desearte un feliz cumpleaños que la pases muy bien, que sigas cumpliendo muchos más, y que siempre haya algo por lo que luchar y por lo que seguir adelante.
+      y siempre estare orgulloso de ti, y de todo lo que has logrado hasta ahora.
+      y nunca te rindas , yo se que seras una gran profesional en lo que te propongas, y que siempre estaré aquí para apoyarte y animarte a seguir adelante.
+      y nada mas solo desearte un feliz cumpleaños, que la pases muy bien, que disfrutes de este día tan especial,
+      y nunca dejes de luchar por tus sueños y por lo que realmente quieres en la vida.
+      y sigue adelante nunca te rindas.
+     <p><strong>" SIN SACRIFICIO NO HAY VICTORIA"</strong></p> 
+      <p>Perdon si a vesces soy muy pesado o me paso a veces con lo que digo, y a veces te entiendo si no quieres hablarme  o prefieres a tu otros amigos jaja
+      ,soy aburrido por eso, pero bueno , no te hare elegir jaja, es tu vida no puedo decirte que haces.
+      ese no es el caso ahora, solo quiero desearte un feliz cumpleaños y que la pases muy pero muy bonito
+      espero que este presente haya sido de tu agrado.
+      psdt ya nos veremos el 2 de agosto si es que puedes.
+      <strong>"FELIZ CUMPLEAÑOS RABANITO , TE QUIERO 3 MILLONES</strong></p>
+      <br><br>
+      <strong>— Con mucho aprecio y cariño Rabanito , se te quiere 3 millones 💐</strong>
+    </div>
+
+    <!-- Galería de 4 imágenes locales -->
+    <div class="galeria">
+      <img src="imagenes/1.jpg" alt="foto 1">
+      <img src="imagenes/2.jpg" alt="foto 2">
+      <img src="imagenes/3.jpg" alt="foto 3">
+      <img src="imagenes/4.jpg" alt="foto 4">
+    </div>
+  </div>
+
+  <!-- Confeti y música -->
+  <script>
+    const cantidad = 100;
+    for (let i = 0; i < cantidad; i++) {
+      const confeti = document.createElement("div");
+      confeti.classList.add("confeti");
+      confeti.style.left = Math.random() * 100 + "vw";
+      confeti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      confeti.style.opacity = Math.random();
+      document.body.appendChild(confeti);
+    }
+
+    function mostrarSorpresa() {
+      document.getElementById('inicio').style.display = 'none';
+      document.getElementById('contenido').style.display = 'flex';
+      document.getElementById('musica').play();
+    }
+  </script>
+
+  <audio id="musica" loop>
+    <source src="musica/cumpleaños.mp3" type="audio/mpeg">
+  </audio>
+
+</body>
+</html>
